@@ -1,0 +1,264 @@
+h1{
+  text-align: center;
+  text-decoration:underline;
+}
+
+.section{
+  margin-bottom: 40px;/*margen entre secciones*/
+  border: 1px solid #000;
+  margin: 20px;
+  padding:10px;
+}
+h2{
+  margin-top: 0px;
+}
+
+a{
+  display:block; /*para que ocupe solo una linea casa uno*/
+  font-size: 30px;
+  text-align: center;
+}
+/*Ejemplo A - position static */
+#box_1 {
+	position: static;  /*La posicion estatica respeta el flujo normla de los elementos*/
+	width: 200px;
+	height: 200px;
+	background: #ee3e64;
+}
+
+#box_2 {
+	position: static;
+	width: 200px;
+	height: 200px;
+	background: #44accf;
+}
+
+#box_3 {
+	position: static;
+	width: 200px;
+	height: 200px;
+	background: #b7d84b;
+}
+
+/*Ejemplo B positon relative*/
+#box_4 {
+  /*si no se le das las coordenadas de las pociones(top,bottom,left,rigth)
+  se comportan como posicionamiento estatico*/
+	position: relative;
+	width: 200px;
+	height: 200px;
+	background: #ee3e64;
+}
+
+#box_5 {
+	position: relative;
+	width: 200px;
+	height: 200px;
+	background: #44accf;
+}
+
+#box_6 {
+	position: relative;
+	width: 200px;
+	height: 200px;
+	background: #b7d84b;
+}
+
+/*Ejemplo C*/
+#box_7 {
+  /*Cuando desplazamos un elemento con relativo no afecta a ningun otro elemento ya que el verde sigue en
+  su posicion no rompe el flujo normal de los demas elementos, como no se encuentra dentro de un contenedor el puento de referencia para que mueva a su nueva
+  posicion es el documento.*/
+	position: relative;
+  left:200px;
+	width: 200px;
+	height: 200px;
+	background: #44accf;
+}
+
+/*Ejemplo D :como la caja de color azul esta dentro de la caja rojo se desplaza a
+200px en relacion a esta*/
+
+/*Ejemplo E*/
+.E{  /*la caja principal donde se van almacenar las otras 4 cajas, se desplazaran en relacion a ella*/
+  position: relative;
+  height: 600px;
+
+}
+/*el position absolute se sale del flujo normal su desplazamiento no afecta a los demas elementos*/
+#box_8 {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 200px;
+	height: 200px;
+	background: #ee3e64;
+}
+#box_9 {
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 200px;
+	height: 200px;
+	background: #44accf;
+}
+#box_10 {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 200px;
+	height: 200px;
+	background: #b7d84b;
+}
+
+#box_11 {
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	width: 200px;
+	height: 200px;
+	background: #ebde52;
+}
+
+/*Ejemplo F : igual que el relative el absolute se mueve en relacion a su contenedor(no tiene que ser de position estatico)*/
+.box_a{  /*cuadro  naranja que esta dentro de las 4 cajas*/
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  top:39%; /*en relacion a su contenedor*/
+  left:41%;
+	background-color: orange;
+}
+/*Ejemplo G : el valor absolute tiene una propiedad que es el offset esto hace que un elemento se pueda estirar
+sin definir su width y heigth ya que se vincula a su contenedor.*/
+#box_12{
+	position: absolute;
+	top: 10px; /*10 px hacia abajo desde su borde superior de su contenedor padre*/
+	right: 10px; /*10 px hacia la izquierda desde su borde derecho de su contenedor padre*/
+	bottom: 10px; /*10 px hacia la derecha desde su borde izquierdo de su contenedor padre*/
+	left: 10px;/*10 px hacia arriba desde su borde inferior de su contenedor padre*/
+	background: #44accf;
+
+}
+
+#box_13{
+	position: absolute;
+	top: 20px;
+	right: 20px;
+	bottom: 20px;
+	left: 20px;
+	background: #ff9c34;
+}
+
+/*Ejemplo H : nos muestra un poco mas de propiedad offset de absolute*/
+#box_14 {
+	position: absolute;
+	top: 0;
+	right: 20%; /*20% hacia la izquieda de su borde derecho de su contenedor*/
+	bottom: 0;
+	left: 0;
+	background: #ee3e64;
+}
+
+#box_15 {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 80%; /*80% hacia la derecha de su borde izquierdo de su contenedor*/
+	background: #b7d84b;
+}
+.H{  /*la caja principal donde se van almacenar las otras 4 cajas, se desplazaran en relacion a ella*/
+  position: relative;
+  height: 420px;
+
+}
+/*Ejemplo H2 */
+#box_16 {
+	width: 200px;
+	height: 200px;
+	background: #ee3e64;
+}
+#box_17 {
+	position: absolute;
+  /*Se desplaza 100px a derecha de su contenedor*/
+	left: 100px;
+	width: 200px;
+	height: 200px;
+	background: #44accf;
+}
+
+/*Ejemplo H3*/
+#box_18 {
+	position: absolute;
+	top: 0; /*como top es 0 no hay un desplazamiento de su margen superior del contenedor por eso se pone arriba*/
+	left: 100px; /*100px hacia la derecha de su contenedor*/
+	width: 200px;
+	height: 200px;
+	background: #44accf;
+}
+
+/*Ejemplo I*/
+
+#box_fixed{
+  position: fixed; /*Se mantiene en una posicion fija, no se desplaza con el documento*/
+  bottom: 0; /*como el fixed se comporta como absolute se le aplica la propiedad offset*/
+  left: 0;
+  right: 0;
+  background: #f95b34;
+  padding-left: 500px;
+  padding-top: 0px;
+}
+
+div p{
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+/*Ejemplo J*/
+
+#container{
+  width: 1000px;
+  margin:auto; /*para centrar*/
+}
+
+#nav{
+  height: 50px; /*alto 50px*/
+  background: #3d435e;
+}
+#nav a{
+    color:#fff;
+    display: block; /*se convertiran en elemnetos bloques para darle medidas*/
+    float: left; /*flotaran hacia la izquierda para que se posicione uno a lado del otro*/
+    padding: 0 30px; /*el relleno de top y bottom sera de 0px y de right y left sera de 20px*/
+    line-height: 50px; /*para la altura de la linea tenga 50px*/
+    border-right: 1px solid #000;
+    font-size: 16px;
+}
+#content{
+  position: relative;
+  padding: 20px 250px 60px 20px;/*top,right,bottom y left*/
+  background: #d9e9f6;
+}
+#callout{
+  position: absolute; /*su contenedor es content necesitamos que salga del flujo para el parrafo de
+  abajo tome su lugar*/
+  width: 210px;/*ancho*/
+  top:100px;/*hacia abajo*/
+  bottom:100px;/*hacia arriba, no necesita poner altura*/
+  right: -80px;/*para que se ponga mas a la derecha*/
+  padding: 0 20px;/*top,bottom y left,right*/
+  background: #7ac9ef;
+}
+#footer{
+  position: fixed;
+  bottom: 0;/*hacia arriba 0px*/
+  width: 600px;/*ancho*/
+  background: #c3c754;
+  padding-left: 400px;
+}
+body{
+ font-size: 16px;
+ font-family: arial;
+
+}
